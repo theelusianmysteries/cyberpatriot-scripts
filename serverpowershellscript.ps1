@@ -16,22 +16,16 @@ while ($true) { ## ngl this while statement is straight from the gpt
     if ([string]::IsNullOrWhiteSpace($line)) { break }
     $supposedUsers += $line.Trim()
 }
-## unnesscary
-# if (supposedUsers.Count -eq 0) {
-#     Write-Host "enter users dummy"
-#     exit 0
-# }
 
+## setting up arrays
 $correctUsers = @()
 $missingUsers = @()
 
 foreach ($user in $supposedUsers) {
     if ($actualUsers.Contains($user)) {
         $correctUsers += $user
-        Write-Host "$user is a correct user"
     } else {
         $missingUsers += $user
-        Write-Host "$user is not correct"
     }
 }
 foreach ($user in $correctUsers) {
